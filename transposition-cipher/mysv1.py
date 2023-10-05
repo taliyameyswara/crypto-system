@@ -1,4 +1,7 @@
-import numpy as np
+# utk operasi numerik dan manipulasi data.
+import numpy as n
+# Import class 'Counter' dari modul 'Collection', untuk menghitung frekuensi kemunculan elemen
+
 from collections import Counter
 
 
@@ -36,13 +39,18 @@ def konversi_kunci(kunci):
 def encrypt(teks, kunci):
     enkripsi = []
     enkripsi.append(kunci)
+
+    # Hanya mengambil huruf-huruf dari teks, mengabaikan karakter khusus
+    teks = ''.join(filter(str.isalpha, teks))
+    teks = teks.upper()
+
     for i in range(0, len(teks), len(kunci)):
         x = teks[i: i + len(kunci)]
         x = list(x)
         enkripsi.append(x)
 
     while len(enkripsi[len(enkripsi) - 1]) < len(kunci):
-        enkripsi[len(enkripsi) - 1].append("@")
+        enkripsi[len(enkripsi) - 1].append("~")
 
     enkripsi = np.array(enkripsi)
     print(" " + np.array2string(enkripsi[1: len(enkripsi)],
@@ -71,10 +79,8 @@ def encrypt(teks, kunci):
 
 
 def main():
-    teks = "teks inputan"
-    teks = teks.replace(" ", "-")
-    teks = teks.upper()
-    kunci = input("Masukkan kunci: ")
+    teks = "Hey! This is a test. lol() fuck"" bye / lmao?"
+    kunci = "kunci"
     kunci = list(kunci.upper())
 
     print("\nK:", konversi_kunci(kunci))
