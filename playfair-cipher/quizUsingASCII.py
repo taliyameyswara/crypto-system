@@ -80,7 +80,6 @@ def generate_matrix(key):
 
     return mat  # Mengembalikan matriks yang berisi huruf
 
-
 # === Fungsi untuk memformat teks hasil dekripsi ===
 def format_message_decrypt(msg):
     # Mengganti huruf 'j' dalam teks menjadi 'i'
@@ -104,7 +103,6 @@ def format_message_decrypt(msg):
     # Mengembalikan teks yang sudah diformat sebagai hasil dekripsi
     return msg
 
-
 # === Fungsi untuk menyesuaikan posisi huruf pada matriks ===
 def get_position(mat, char):
     # Loop untuk baris sebanyak 5x
@@ -115,42 +113,6 @@ def get_position(mat, char):
             if mat[row][col] == char:
                 # Jika sama, kembalikan nilai kolom dan baris
                 return (row, col)
-
-
-# === Fungsi untuk mengenkripsi ===
-# def encrypt(message, mat):
-#     ciphertext = ''  # Variabel untuk menyimpan hasil dari enkripsi
-#     i = 0
-
-#     while i < len(message):
-#         # Pasangan 2 Huruf
-#         char1 = message[i]  # Huruf pertama
-#         char2 = message[i+1]  # Huruf kedua
-
-#         pos1 = get_position(mat, char1)  # Posisi pertama pada matriks
-#         pos2 = get_position(mat, char2)  # Posisi keuda pada matriks
-
-#         x1, y1 = pos1  # Baris dan kolom huruf pertama
-#         x2, y2 = pos2  # Baris dan kolom huruf kedua
-
-#         # Jika berada pada baris yang sama, geser ke kanan
-#         if x1 == x2:
-#             # Menambahkan huruf pertama hasil enkripsi
-#             ciphertext += mat[x1][(y1 - 1) % 5]
-#             # Menambahkan huruf kedua hasil enkripsi
-#             ciphertext += mat[x2][(y2 - 1) % 5]
-#         # Jika berada pada kolom yang sama, geser ke bawah
-#         elif y1 == y2:
-#             ciphertext += mat[(x1 - 1) % 5][y1]
-#             ciphertext += mat[(x2 - 1) % 5][y2]
-#         # Jika berada pada baris dan kolom yang berbeda
-#         else:
-#             ciphertext += mat[x2][y1]
-#             ciphertext += mat[x1][y2]
-
-#         i += 2
-
-#     return ciphertext
 
 def encrypt(message, mat):
     ciphertext = ''  # Variabel untuk menyimpan hasil dari enkripsi
@@ -201,7 +163,6 @@ def encrypt(message, mat):
 
     return ciphertext
 
-
 # === Fungsi untuk mendekripsi ===
 def decrypt(ciphertext, mat):
     plaintext = ''
@@ -230,8 +191,6 @@ def decrypt(ciphertext, mat):
         i += 2
 
     return plaintext
-
-# Output Matriks
 
 
 def matrix(mat):
